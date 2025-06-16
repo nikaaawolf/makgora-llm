@@ -50,9 +50,11 @@ Entity Description: [New Description]
  * @param {string} entity2Description - Second entity description
  * @returns {Promise<{winner: number, battleDescription: string}>}
  */
-async function generateBattle(entity1Description, entity2Description) {
+async function generateBattle(entity1Name, entity1Description, entity2Name, entity2Description) {
   const prompt = `
+First Entity Name: ${entity1Name}
 First Entity Description: ${entity1Description}
+Second Entity Name: ${entity2Name}
 Second Entity Description: ${entity2Description}
 
 What would happen if these two entities battled? Consider the characteristics and abilities of each entity to determine the battle outcome.

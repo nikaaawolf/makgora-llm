@@ -9,17 +9,17 @@ const { generateBattle } = require('../services/openai');
  */
 router.post('/', async (req, res) => {
   try {
-    const { entity1Description, entity2Description } = req.body;
+    const { entity1Name, entity1Description, entity2Name, entity2Description } = req.body;
     
     // Validate required parameters
-    if (!entity1Description || !entity2Description) {
+    if (!entity1Name || !entity1Description || !entity2Name || !entity2Description) {
       return res.status(400).json({
-        error: 'Missing required parameters. entity1Description and entity2Description are required.'
+        error: 'Missing required parameters. entity1Name, entity1Description, entity2Name, and entity2Description are required.'
       });
     }
     
     // Generate battle results
-    const result = await generateBattle(entity1Description, entity2Description);
+    const result = await generateBattle(entity1Name, entity1Description, entity2Name, entity2Description);
     
     res.json({
       winner: result.winner, // 0: first entity, 1: second entity
