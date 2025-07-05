@@ -20,6 +20,7 @@ Derivative Description: ${derivativeDescription}
 
 Based on the information above, create a completely new entity. Combine characteristics of the original entity with the derivative description to create an original result.
 Never copy the original description directly.
+Description should be under 210 bytes.
 
 Response Format:
 Entity Name: [New Name]
@@ -33,6 +34,7 @@ Entity Description: [New Description]
   });
 
   const content = response.choices[0].message.content;
+  console.log(`Remix result: ${content}`);
   
   // Parse response
   const nameMatch = content.match(/Entity Name: (.*)/);
@@ -73,6 +75,7 @@ Battle Description: [2-3 lines describing the battle]
   });
 
   const content = response.choices[0].message.content;
+  console.log(`Battle result: ${content}`);
   
   // Parse response
   const winnerMatch = content.match(/Winner: (\d+)/);
